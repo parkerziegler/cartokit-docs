@@ -1,0 +1,18 @@
+# Build Output
+dist/
+
+# Generated Types
+.astro/
+
+# Dependencies
+node_modules/
+
+# Logs
+pnpm-debug.log*
+
+# Environment Variables
+.env
+.env.production
+
+# macOS
+.DS_Store
