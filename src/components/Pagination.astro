@@ -1,18 +1,18 @@
 ---
-import Icon from './Icon.astro';
+import Icon from "./Icon.astro";
 
 const { dir, labels, pagination } = Astro.props;
 const { prev, next } = pagination;
-const isRtl = dir === 'rtl';
+const isRtl = dir === "rtl";
 ---
 
 <div class="pagination-links" dir={dir}>
   {
     prev && (
       <a href={prev.href} rel="prev">
-        <Icon name={isRtl ? 'right-chevron' : 'left-chevron'} size="1rem" />
+        <Icon name={isRtl ? "right-chevron" : "left-chevron"} size="1rem" />
         <span>
-          {labels['page.previousLink']}
+          {labels["page.previousLink"]}
           <br />
           <span class="link-title">{prev.label}</span>
         </span>
@@ -22,9 +22,9 @@ const isRtl = dir === 'rtl';
   {
     next && (
       <a href={next.href} rel="next">
-        <Icon name={isRtl ? 'left-chevron' : 'right-chevron'} size="1rem" />
+        <Icon name={isRtl ? "left-chevron" : "right-chevron"} size="1rem" />
         <span>
-          {labels['page.nextLink']}
+          {labels["page.nextLink"]}
           <br />
           <span class="link-title">{next.label}</span>
         </span>
@@ -43,7 +43,7 @@ const isRtl = dir === 'rtl';
     @apply flex w-full items-center gap-2 py-2 text-sm text-gray-500 no-underline transition-opacity hover:opacity-50;
   }
 
-  [rel='next'] {
+  [rel="next"] {
     @apply flex-row-reverse text-end;
     justify-content: end;
   }

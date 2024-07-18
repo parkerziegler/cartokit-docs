@@ -1,0 +1,62 @@
+---
+title: Loading data
+description: Learn how to load data into `cartokit`.
+sidebar:
+  order: 1
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+import Topline from "../../../components/Topline.astro";
+import Video from "../../../components/Video.astro";
+
+<Topline>
+  `cartokit` allows you to load geospatial data as
+  [GeoJSON](https://geojson.org/) from either an API endpoint or a file on disk.
+</Topline>
+
+To load data into `cartokit`, click the <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="!inline"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12"/></svg> button in the **Layers Panel** to open the **Add Layer** modal.
+
+<Video src="/open-add-layer-modal.mp4" />
+
+## Loading data from an API endpoint
+
+To load data from an API endpoint, ensure you have the **From API** tab of the **Add Layer** modal selected. Then, enter the url of the GeoJSON resource into the **Endpoint** field. For example, to load the USGS's real-time GeoJSON feed for magnitude 2.5+ earthquakes in the United States over the past week, enter the following url:
+
+```
+https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson
+```
+
+Next, give the layer a descriptive name in the **Display Name** field. This name will be used to reference the layer in the **Layers Panel**.
+
+Finally, click the **Add** button to load the data into `cartokit`.
+
+<Video src="/from-api.mp4" />
+
+<Aside type="caution" title="CORS Reminder!">
+  When you load GeoJSON data from an API endpoint, `cartokit` issues a request
+  to the server hosting the data using the origin `alpha.cartokit.dev`. Ensure
+  the server has correctly configured CORS to permit cross-origin requests from
+  this origin. [Learn more about
+  CORS.](https://web.dev/articles/cross-origin-resource-sharing)
+</Aside>
+
+## Loading data from disk
+
+`cartokit` also permits loading a GeoJSON file directly from disk. To do so, ensure you have the **From File** tab of the **Add Layer** modal selected. Then, click the **Choose file...** input to open a file picker dialog. For example, we can load a local GeoJSON file containing data from ProPublica's [NAGPRA repatriation database](https://projects.propublica.org/repatriation-nagpra-database/).
+
+As before, give the layer a name in the **Display Name** field and click **Add** to add your layer to the map.
+
+<Video src="/from-file.mp4" />
+
+## Display names
+
+All layers added to `cartokit` must have a display name, which is used to reference the layer in both the **Layers Panel** and the **Properties Panel**. Display names need not be unique—under the hood, `cartokit` assigns each layer a unique identifier. This identifier is used to reference the layer in the generated Mapbox GL JS program.
+
+## Data size
+
+While `cartokit` is capable of handling 100MB+ GeoJSON datasets, we still recommend reducing your dataset size as much as possible prior to upload to keep interactions speedy. We recommend a few techniques:
+
+1. Simplify `Feature` geometries using tools like [MapShaper](https://mapshaper.org/) or [`ogr2ogr`](https://gdal.org/programs/ogr2ogr.html#cmdoption-ogr2ogr-simplify).
+2. Remove unnecessary `properties` from your GeoJSON `FeatureCollection`.
+3. When possible, prefer loading data from an API endpoint. Because `cartokit` keeps data loaded from disk in memory, large datasets can apply significant memory pressure that slows down the application.

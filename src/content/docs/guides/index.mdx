@@ -1,0 +1,26 @@
+---
+title: Overview
+description: Learn how to use cartokit to program web maps.
+sidebar:
+  order: 0
+---
+
+import { CardGrid } from "@astrojs/starlight/components";
+
+import LinkCard from "../../../components/LinkCard.astro";
+import Topline from "../../../components/Topline.astro";
+
+<Topline>
+  `cartokit` is a fast, flexible direct manipulation programming environment for
+  web maps. Learn how to get the most out of `cartokit` in the following guides.
+</Topline>
+
+<CardGrid>
+  <LinkCard title="Loading data" description="" href="/guides/loading-data">
+    Learn how to load geospatial data into `cartokit`.
+  </LinkCard>
+  {/* <LinkCard title="Layer types" href="/guides/layer-types">
+    Learn about the different cartographic representations `cartokit` supports,
+    and how to transition between them.
+  </LinkCard> */}
+</CardGrid>

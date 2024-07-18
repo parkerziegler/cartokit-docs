@@ -1,26 +1,26 @@
 ---
-import type { Props } from '@astrojs/starlight/props';
-import CallToAction from '@astrojs/starlight/components/CallToAction.astro';
-import DarkLogo from './DarkLogo.astro';
-import Logo from './Logo.astro';
+import type { Props } from "@astrojs/starlight/props";
+import CallToAction from "@astrojs/starlight/components/CallToAction.astro";
+import DarkLogo from "./DarkLogo.astro";
+import Logo from "./Logo.astro";
 
 const { data } = Astro.props.entry;
 const { tagline, actions = [] } = data.hero || {};
 ---
 
 <div class="hero">
-  <video autoplay loop muted class="rounded shadow-xl max-w-full">
+  <video autoplay loop muted class="max-w-full rounded shadow-xl">
     <source src="/cartokit.mp4" type="video/mp4" />
   </video>
-  <div class="flex stack">
-    <div class="flex copy">
+  <div class="stack flex">
+    <div class="copy flex">
       <Logo />
       <DarkLogo />
       {tagline && <div class="tagline" set:html={tagline} />}
     </div>
     {
       actions.length > 0 && (
-        <div class="flex actions">
+        <div class="actions flex">
           {actions.map(({ text, ...attrs }) => (
             <CallToAction {...attrs} set:html={text} />
           ))}

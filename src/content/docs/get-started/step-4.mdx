@@ -1,11 +1,12 @@
 ---
-title: 'Step 4: Running the program'
-description: 'Learn how to run cartokit-generated programs in a web browser.'
+title: "Step 4: Running the program"
+description: "Learn how to run cartokit-generated programs in a web browser."
 ---
 
-import { Code, Tabs, TabItem, Steps } from '@astrojs/starlight/components';
+import { Code, Tabs, TabItem, Steps } from "@astrojs/starlight/components";
 
-import Video from '../../../components/Video.astro';
+import Topline from "../../../components/Topline.astro";
+import Video from "../../../components/Video.astro";
 
 export const diff = `
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -48,10 +49,10 @@ export const mapboxAccessTokenDiff = `
    container: "map",
 `;
 
-<p class="text-xl tracking-wide text-gray-700 dark:text-gray-200">
+<Topline>
   `cartokit` compiles your map into a Mapbox GL JS program in real-time, making
   it easy to transfer the code to your development environment.
-</p>
+</Topline>
 
 A core goal of `cartokit` is to provide access to your map's code at all phases of the design process. There is no separate "Export" workflow here; the program is always available under the **Program** tab in the **Editor**.
 
