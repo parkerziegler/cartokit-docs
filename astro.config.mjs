@@ -12,6 +12,7 @@ export default defineConfig({
     starlight({
       title: "cartokit Docs",
       customCss: ["./src/tailwind.css"],
+      favicon: "/favicon.png",
       logo: {
         dark: "./src/assets/logo-dark.svg",
         light: "./src/assets/logo.svg",
