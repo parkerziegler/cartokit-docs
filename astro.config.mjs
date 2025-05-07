@@ -21,7 +21,6 @@ export default defineConfig({
       },
       social: {
         github: "https://github.com/parkerziegler/cartokit",
-        "x.com": "https://x.com/parker_ziegler",
       },
       sidebar: [
         {
