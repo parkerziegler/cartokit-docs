@@ -14,7 +14,7 @@ const { title, ...attributes } = Astro.props;
 >
   <span class="flex flex-col gap-2">
     <a {...attributes} class="no-underline">
-      <span class="text-xl font-semibold text-black" set:html={title} />
+      <span class="text-xl font-semibold text-black dark:text-white" set:html={title} />
     </a>
     <slot />
   </span>

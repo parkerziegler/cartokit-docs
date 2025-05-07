@@ -1,0 +1,44 @@
+---
+title: "Step 5: Using cartokit with GPT-4o (Preview)"
+description: "Learn how to use cartokit's native integration with GPT-4o to quickly visualize your geospatial data using natural language."
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+import ChatIcon from "../../../components/ChatIcon.astro";
+import Topline from "../../../components/Topline.astro";
+import Video from "../../../components/Video.astro";
+
+<Topline>
+  Users with Preview access can use `cartokit`'s native integration with
+  OpenAI's GPT-4o model to visualize their geospatial data using natural
+  language.
+</Topline>
+
+All of the actions we've taken so far in `cartokit` can also be performed using our native integration with OpenAI's GPT-4o model. Users with **Preview** access will see a <span class="not-content"><ChatIcon /></span> icon in their **Toolbar**. Clicking on this icon will reveal a chat window where you can prompt GPT-4o to visualize your data.
+
+<Video src="/cartokit-llm.mp4" />
+
+Let's try this with our working example. Reload the page to start a new session in `cartokit` and re-add the Unemployment Rate layer, following the steps in [Step 1](/get-started/step-1).
+
+Now, let's pop open the chat window and ask GPT-4o to create a choropleth map of the unemployment rate by county in the United States. We'll use the following prompt to start:
+
+> Create a choropleth map of the unemployment rate by county in the United States.
+
+<Video src="/cartokit-llm-choropleth-transition.mp4" />
+
+Nice! Rather than using `cartokit`'s direct manipulation controls, we were able to use natural language to describe the map we wanted to create!
+
+Of course, this isn't all that interesting—`cartokit` already has one-click support for creating choropleth maps. Let's up the ante a bit by matching the steps, thresholds, color scheme, and fill opacity of our working example in one shot. Try the following prompt:
+
+> Bin the Unemployment Rate data into 9 steps using a manual classifier. Set thresholds at intervals of 1, starting from the dataset minimum. For example, the first break should be 2, the second break should be 3, etc., up to 9. Additionally, increase the fill-opacity to 100%, remove the stroke, and use a blue color scheme.
+
+<Video src="/cartokit-llm-long-prompt.mp4" />
+
+That's more like it! In just a single prompt, we managed to almost entirely replicate our working example. `cartokit`'s GPT-4o integration is capable of applying an arbitrary number of updates depending on your prompt; in this instance, it issued 13 updates to the map to achieve the desired result.
+
+<Aside type="caution">
+  Some updates returned by GPT-4o may not match your prompt exactly. It's always
+  a good idea to review how your layers changed in the **Properties Panel**
+  after running a prompt.
+</Aside>
