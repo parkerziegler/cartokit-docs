@@ -13,7 +13,7 @@ import Topline from "../../../components/Topline.astro";
   support for transitioning between forms without transforming your data.
 </Topline>
 
-As a tool for interactive cartography, `cartokit` adopts the language of cartographers to describe layers on your map. Rather than focusing on the appearance of individual marks, `cartokit` gives each layer a **type** that corresponds to a particular cartographic form. A layer's type determines not only which of its visual attributes can be styled, but also how data is mapped to particular attributes for display. This behavior guides you into the pit of mapping success, applying smart defaults and best practices without tedious configuration.
+As a tool for interactive cartography, `cartokit` adopts the language of cartographers to describe layers on your map. Rather than focusing on the appearance of individual marks, `cartokit` gives each layer a **type** that corresponds to a particular cartographic form. A layer's type determines not only which of its visual attributes can be styled, but also how data is mapped to particular attributes for display.
 
 ## Layer types
 
@@ -22,6 +22,8 @@ As a tool for interactive cartography, `cartokit` adopts the language of cartogr
 ### Point
 
 The **Point** layer type displays all features of a layer as points with a consistent, configurable radius. This type is the default type for `Point` and `MultiPoint` GeoJSON datasets.
+
+![A Point layer in cartokit consisting of earthquakes from the USGS real-time earthquake feed.](/point.png)
 
 #### Supported Input Geometries
 
@@ -32,6 +34,3 @@ The **Point** layer type displays all features of a layer as points with a consi
 - `Polygon` (uses centroid)
 - `MultiPolygon` (uses centroid)
 
-## Layer type transitions
-
-Many geospatial datasets can be represented using different cartographic forms, and it's not always clear which form best represents your data. Typically, experimenting with diverse forms requires both significant data transformation work and changes to your visualization code. With `cartokit`, these transitions are instant and reversible via the **Layer Type** select, allowing you to explore different representations of your data without writing any transformation code yourself. But don't worry—this code is always included in the generated program, available in the **Editor**.
