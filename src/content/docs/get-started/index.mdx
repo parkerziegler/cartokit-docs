@@ -3,8 +3,7 @@ title: Get started with cartokit
 description: Get started using cartokit.
 ---
 
-import { Code, Tabs, TabItem } from "@astrojs/starlight/components";
-import CallToAction from "@astrojs/starlight/components/CallToAction.astro";
+import { Code, Tabs, TabItem, LinkButton } from "@astrojs/starlight/components";
 
 import Topline from "../../../components/Topline.astro";
 import Video from "../../../components/Video.astro";
@@ -16,14 +15,14 @@ import Video from "../../../components/Video.astro";
 
 With `cartokit`, you can analyze, visualize, and style vector geospatial data using familiar interactions from design tools like Adobe Illustrator, Figma, Felt, and Mapbox Studio. Simultaneously, `cartokit` generates a JavaScript or TypeScript program using either [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides) or [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) to reproduce the map exactly. Take the code to your text editor or computational notebook for further customization or deployment.
 
-<CallToAction
+<LinkButton
   variant="primary"
-  link="https://alpha.cartokit.dev/"
-  attrs={{ class: "mt-4 !inline-flex transition-colors not-content" }}
-  icon={{ type: "icon", name: "right-arrow" }}
+  href="https://alpha.cartokit.dev/"
+  class="mt-4 !inline-flex transition-colors not-content"
+  icon="right-arrow"
 >
   Try it now
-</CallToAction>
+</LinkButton>
 
 ## Your first map
 

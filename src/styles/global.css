@@ -1,10 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer base, starlight, theme, components, utilities;
+
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@theme {
+  --color-accent-light: #d4d7ff;
+  --color-accent-dark: #3d00ff;
+}
 
 :root[data-theme="light"],
 :root[data-theme="dark"] {
-  --sl-color-bg-inline-code: theme("colors.accent.200");
+  --sl-color-bg-inline-code: var(--color-accent-light);
 }
 
 header {
@@ -22,5 +29,5 @@ header {
 }
 
 code {
-  @apply rounded text-accent-700;
+  @apply rounded text-accent-dark;
 }

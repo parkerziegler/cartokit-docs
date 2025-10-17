@@ -1,9 +1,8 @@
 import starlight from "@astrojs/starlight";
-import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 
-// https://astro.build/config
 export default defineConfig({
   adapter: vercel({
     webAnalytics: { enabled: true },
@@ -11,7 +10,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "cartokit Docs",
-      customCss: ["./src/tailwind.css"],
+      customCss: ["./src/styles/global.css"],
       favicon: "/favicon.png",
       logo: {
         dark: "./src/assets/logo-dark.svg",
@@ -19,9 +18,11 @@ export default defineConfig({
         alt: "cartokit",
         replacesTitle: true,
       },
-      social: {
-        github: "https://github.com/parkerziegler/cartokit",
-      },
+      social: [{
+        icon: "github",
+        label: "GitHub",
+        href: "https://github.com/parkerziegler/cartokit",
+      }],
       sidebar: [
         {
           label: "Get Started",
@@ -41,6 +42,6 @@ export default defineConfig({
         Pagination: "./src/components/Pagination.astro",
       },
     }),
-    tailwind({ applyBaseStyles: false }),
   ],
+  vite: { plugins: [tailwindcss()] },
 });

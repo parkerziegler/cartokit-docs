@@ -1,7 +1,7 @@
 ---
 import Icon from "./Icon.astro";
 
-const { dir, labels, pagination } = Astro.props;
+const { dir, pagination } = Astro.locals.starlightRoute;
 const { prev, next } = pagination;
 const isRtl = dir === "rtl";
 ---
@@ -12,7 +12,7 @@ const isRtl = dir === "rtl";
       <a href={prev.href} rel="prev">
         <Icon name={isRtl ? "right-chevron" : "left-chevron"} size="1rem" />
         <span>
-          {labels["page.previousLink"]}
+          Previous
           <br />
           <span class="link-title">{prev.label}</span>
         </span>
@@ -24,7 +24,7 @@ const isRtl = dir === "rtl";
       <a href={next.href} rel="next">
         <Icon name={isRtl ? "left-chevron" : "right-chevron"} size="1rem" />
         <span>
-          {labels["page.nextLink"]}
+          Next
           <br />
           <span class="link-title">{next.label}</span>
         </span>
@@ -34,6 +34,8 @@ const isRtl = dir === "rtl";
 </div>
 
 <style>
+  @reference 'tailwindcss';
+
   .pagination-links {
     @apply grid gap-4;
     grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));

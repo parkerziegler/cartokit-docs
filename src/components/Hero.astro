@@ -1,10 +1,9 @@
 ---
-import type { Props } from "@astrojs/starlight/props";
-import CallToAction from "@astrojs/starlight/components/CallToAction.astro";
+import { LinkButton } from "@astrojs/starlight/components";
 import DarkLogo from "./DarkLogo.astro";
 import Logo from "./Logo.astro";
 
-const { data } = Astro.props.entry;
+const { data } = Astro.locals.starlightRoute.entry;
 const { tagline, actions = [] } = data.hero || {};
 ---
 
@@ -22,7 +21,7 @@ const { tagline, actions = [] } = data.hero || {};
       actions.length > 0 && (
         <div class="actions flex">
           {actions.map(({ text, ...attrs }) => (
-            <CallToAction {...attrs} set:html={text} />
+            <LinkButton href={attrs.link} variant={attrs.variant} icon={attrs.icon?.name}>{text}</LinkButton>
           ))}
         </div>
       )
@@ -31,6 +30,8 @@ const { tagline, actions = [] } = data.hero || {};
 </div>
 
 <style>
+  @reference 'tailwindcss';
+
   .hero {
     @apply grid items-center gap-4 pb-4;
   }
