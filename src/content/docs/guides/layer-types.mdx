@@ -3,7 +3,6 @@ title: Layer types
 description: Learn about the different types of layers available in cartokit.
 sidebar:
   order: 2
-draft: true
 ---
 
 import Topline from "../../../components/Topline.astro";
@@ -24,6 +23,36 @@ As a tool for interactive cartography, `cartokit` adopts the language of cartogr
 The **Point** layer type displays all features of a layer as points with a consistent, configurable radius. This type is the default type for `Point` and `MultiPoint` GeoJSON datasets.
 
 ![A Point layer in cartokit consisting of earthquakes from the USGS real-time earthquake feed.](/point.png)
+
+### Proportional Symbol
+
+The **Proportional Symbol** layer type allows scaling of point symbols based on the value of a selected attribute for each data point. This is one option type for `MultiPoint` and `MultiPolygon` GeoJSON datasets.
+
+![A Proportional Symbol layer in cartokit consisting of all natural gas-powered electricity plants in the United States and their capacities.](/proportional-symbol.png)
+
+### Heatmap
+
+The **Heatmap** layer type displays the density of data using a color gradient with intensity styled by a **Constant** concentration of points or weighted **Range** with selected attribute value. This is one option type for `MultiPoint` GeoJSON datasets.
+
+![A Heatmap Symbol layer in cartokit of concentration of gas-powered electricity plants capacities in the United States.](/heatmap.png)
+
+### Polygon
+
+The **Polygon** layer type displays geographic areas as filled shapes with configurable fill color and border style. This type is the default type for `Polygon` and `MultiPolygon` GeoJSON datasets.
+
+![A Proportional Symbol layer in cartokit displaying urban areas in the United States.](/polygon.png)
+
+### Choropleth
+
+The **Choropleth** layer type colors polygons based on the value of a selected attribute, either **Categories** or a numerical **Range** with a using a configurable scale. This is one option type for `MultiPolygon` GeoJSON datasets.
+
+![A Choropleth Symbol layer in cartokit visualizing the predicted change in deaths linked to temperature by 2080 across the world.](/choropleth.png)
+
+### Dot Density
+
+The **Dot Density** layer type distributes points within polygon boundaries, with the number of points proportional to a selected attribute value. This is one option type for `MultiPolygon` GeoJSON datasets.
+
+![A Dot Density Symbol layer in cartokit visualizing the predicted change in deaths linked to temperature by 2080 across the world.](/dot-density.png)
 
 #### Supported Input Geometries
 
