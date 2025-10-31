@@ -1,0 +1,65 @@
+---
+title: Basemaps
+description: Learn about adjusting basemaps in cartokit.
+sidebar:
+  order: 3
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+import Topline from "../../../components/Topline.astro";
+import Video from "../../../components/Video.astro";
+
+<Topline>
+    `cartokit` allows you to swap between and upload your own basemaps, giving you quick control over the geographic canvas
+</Topline>
+
+To change your basemap `cartokit`, click the **Basemap Picker** in the center bottom of the screen and choose any option. You current map’s data and layers remain intact.
+
+<Video src="/basemap-tabbing.mp4" />
+
+## Basemap providers
+
+`cartokit` currently supports four basemap providers and custom uploads.
+
+### CARTO
+
+CARTO offers modern basemaps ideal for data visualization and analysis.
+
+![A CARTO basemap.](/basemap-carto.png)
+
+### MapTiler
+
+MapTiler provides a wide range of global and terrain basemaps with detailed vector styling.
+
+<Aside type="caution" title="API Key Reminder">
+    MapTiler requires an <a href="https://docs.maptiler.com/cloud/api/authentication-key/" target="_blank" rel="noopener noreferrer">API key</a> for access. Be sure to configure your own key when using MapTiler basemaps outside `cartokit`.
+</Aside>
+
+![A MapTiler basemap.](/basemap-maptiler.png)
+
+### Stadia Maps
+
+Stadia Maps offers high-quality, fast tiles built for both light and dark interfaces.
+
+<Aside type="caution" title="Authentication reminder">
+    Stadia Maps uses domain-based authentication. You’ll need to register your deployment domain with Stadia Maps to enable access.
+</Aside>
+
+![A Stadia Maps basemap.](/basemap-stadia.png)
+
+### Stamen
+
+Stamen’s basemaps include creative and artistic styles such as *Toner*, *Watercolor*, and *Terrain*.
+
+![A Stamen basemap.](/basemap-stamen.png)
+
+## Custom basemap
+
+The Custom tab in `cartokit` allows you to load your own basemap by supplying a URL to any style JSON compatible with the <a href="https://openmaptiles.org/schema/" target="_blank" rel="noopener noreferrer">OpenMapTiles</a> schema.
+
+The OpenMapTiles schema defines a common structure for vector tiles derived from OpenStreetMap. Each tile is organized into thematic layers that describe how features should be rendered. Because the schema is open and widely adopted, many tools can produce compatible vector tiles and style JSON files that work seamlessly in cartokit.
+
+<Video src="/basemap-custom.mp4" />
+
+
