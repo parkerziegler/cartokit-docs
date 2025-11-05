@@ -14,51 +14,51 @@ import Video from "../../../components/Video.astro";
     `cartokit` allows you to swap between and upload your own basemaps, giving you quick control over the geographic canvas
 </Topline>
 
-To change your basemap `cartokit`, click the **Basemap Picker** in the center bottom of the screen and choose any option. You current map’s data and layers remain intact.
+To change your basemap `cartokit`, click the **Basemap Picker** in the center bottom of the screen and choose any option. You current map’s data and layers will remain intact.
 
 <Video src="/basemap-tabbing.mp4" />
 
 ## Basemap providers
 
-`cartokit` currently supports four basemap providers and custom uploads.
+`cartokit` currently provides basemaps from four providers and the ability to upload your own.
 
 ### CARTO
 
-CARTO offers modern basemaps ideal for data visualization and analysis.
+<a href="https://docs.maptiler.com/cloud/api/authentication-key/"> **CARTO**</a> offers modern basemaps ideal for data visualization and analysis. For non-commercial purposes, these basemaps are free to use and require no additional setup.
 
-![A CARTO basemap.](/basemap-carto.png)
+![The 'Dark Matter' CARTO basemap loaded in cartokit.](/basemap-carto.png)
 
 ### MapTiler
 
-MapTiler provides a wide range of global and terrain basemaps with detailed vector styling.
+<a href ="https://www.maptiler.com/">**MapTiler**</a> provides a wide range of global and terrain basemaps with detailed vector styling.
 
 <Aside type="caution" title="API Key Reminder">
-    MapTiler requires an <a href="https://docs.maptiler.com/cloud/api/authentication-key/" target="_blank" rel="noopener noreferrer">API key</a> for access. Be sure to configure your own key when using MapTiler basemaps outside `cartokit`.
+    MapTiler requires an <a href="https://docs.maptiler.com/cloud/api/authentication-key/" target="_blank" rel="noopener noreferrer">API key</a> for access. Be sure to configure your own key when using these basemaps outside `cartokit`.
 </Aside>
 
-![A MapTiler basemap.](/basemap-maptiler.png)
+![The 'Ocean' MapTiler basemap loaded in cartokit.](/basemap-maptiler.png)
 
 ### Stadia Maps
 
-Stadia Maps offers high-quality, fast tiles built for both light and dark interfaces.
+<a href="https://docs.stadiamaps.com/">**Stadia Maps**</a> offers high-quality, fast tiles built for both light and dark interfaces. If you're running via a local development server, you don't need an API key. 
 
 <Aside type="caution" title="Authentication reminder">
-    Stadia Maps uses domain-based authentication. You’ll need to register your deployment domain with Stadia Maps to enable access.
+    Stadia Maps uses <a href="https://docs.stadiamaps.com/authentication/#domain-based-authentication">domain-based authentication</a>. You’ll need to register your deployment domain with Stadia Maps to enable access. If your map runs outside of a browser, you will need an <a href="https://docs.stadiamaps.com/authentication/#api-keys">API key</a>.
 </Aside>
 
-![A Stadia Maps basemap.](/basemap-stadia.png)
+![The 'OSM Bright' Stadia Maps basemap loaded in cartokit.](/basemap-stadia.png)
 
 ### Stamen
 
-Stamen’s basemaps include creative and artistic styles such as *Toner*, *Watercolor*, and *Terrain*.
+<a href="https://maps.stamen.com/">**Stamen**</a>’s basemaps include creative and artistic styles such as *Toner*, *Watercolor*, and *Terrain*. Stamen Map Tiles are now served by **Stadia Maps** and should follow the same authentication procedures.
 
-![A Stamen basemap.](/basemap-stamen.png)
+![The 'Terrain' Stamen basemap loaded in cartokit.](/basemap-stamen.png)
 
 ## Custom basemap
 
 The Custom tab in `cartokit` allows you to load your own basemap by supplying a URL to any style JSON compatible with the <a href="https://openmaptiles.org/schema/" target="_blank" rel="noopener noreferrer">OpenMapTiles</a> schema.
 
-The OpenMapTiles schema defines a common structure for vector tiles derived from OpenStreetMap. Each tile is organized into thematic layers that describe how features should be rendered. Because the schema is open and widely adopted, many tools can produce compatible vector tiles and style JSON files that work seamlessly in cartokit.
+The OpenMapTiles schema defines a common structure for vector tiles derived from OpenStreetMap. Each tile is organized into thematic layers that describe how features should be rendered. Because the schema is open and widely adopted, many tools can produce compatible vector tiles and style JSON files that work seamlessly in `cartokit`. 
 
 <Video src="/basemap-custom.mp4" />
 
