@@ -60,6 +60,9 @@ The Custom tab in `cartokit` allows you to load your own basemap by supplying a 
 
 The OpenMapTiles schema defines a common structure for vector tiles derived from OpenStreetMap. Each tile is organized into thematic layers that describe how features should be rendered. Because the schema is open and widely adopted, many tools can produce compatible vector tiles and style JSON files that work seamlessly in `cartokit`. 
 
+<Aside type="caution" title="CORS Reminder">
+    If you are requesting a custom basemap from a remote server or object storage, ensure you've configured CORS to permit cross-origin requests from the origin `alpha.cartokit.dev`. [Learn more about CORS.](https://web.dev/articles/cross-origin-resource-sharing)
+</Aside>
 <Video src="/basemap-custom.mp4" />
 
 
