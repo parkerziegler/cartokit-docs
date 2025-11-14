@@ -1,0 +1,68 @@
+---
+title: Configuring basemaps
+description: Learn about adjusting basemaps in cartokit.
+sidebar:
+  order: 3
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+import Topline from "../../../components/Topline.astro";
+import Video from "../../../components/Video.astro";
+
+<Topline>
+    `cartokit` allows you to swap between and upload your own basemaps, giving you quick control over the geographic canvas.
+</Topline>
+
+To change your basemap `cartokit`, click the **Basemap Picker** in the **Toolbar** (or press <kbd>B</kbd>) and choose any option. Your current map&apos;s data and layers will remain intact.
+
+<Video src="/basemap-tabbing-min.mp4" />
+
+## Basemap providers
+
+`cartokit` currently provides basemaps from four providers, as well as the ability to supply our own [OpenMapTiles](https://openmaptiles.org/schema/)-compatible schema from an accessible url.
+
+### CARTO
+
+[**CARTO**](https://carto.com/) offers modern basemaps ideal for data visualization and analysis. For non-commercial purposes, these basemaps are free to use and require no additional setup.
+
+![The 'Dark Matter' CARTO basemap loaded in cartokit.](/basemap-carto.png)
+
+### MapTiler
+
+[**MapTiler**](https://maptiler.com/) provides a wide range of vector styles for data visualization, navigation, and terrain mapping.
+
+<Aside type="caution" title="API Key Reminder">
+    MapTiler requires an <a href="https://docs.maptiler.com/cloud/api/authentication-key/" target="_blank" rel="noopener noreferrer">API key</a> for access. Be sure to configure your own key when using these basemaps outside `cartokit`.
+</Aside>
+
+![The 'Ocean' MapTiler basemap loaded in cartokit.](/basemap-maptiler.png)
+
+### Stadia Maps
+
+[**Stadia Maps**](https://docs.stadiamaps.com/) offers high-quality, fast tiles built for both light and dark interfaces. If you're running via a local development server, you don't need an API key. 
+
+<Aside type="caution" title="Authentication Reminder">
+    Stadia Maps uses <a href="https://docs.stadiamaps.com/authentication/#domain-based-authentication">domain-based authentication</a>. You’ll need to register your deployment domain with Stadia Maps to enable access. If your map runs outside of a browser, you will need an <a href="https://docs.stadiamaps.com/authentication/#api-keys">API key</a>.
+</Aside>
+
+![The 'OSM Bright' Stadia Maps basemap loaded in cartokit.](/basemap-stadia.png)
+
+### Stamen
+
+<a href="https://maps.stamen.com/">**Stamen**</a>’s basemaps include creative and artistic styles such as *Toner*, *Watercolor*, and *Terrain*. Stamen Map Tiles are now served by **Stadia Maps** and should follow the same authentication procedures.
+
+![The 'Terrain' Stamen basemap loaded in cartokit.](/basemap-stamen.png)
+
+## Custom basemap
+
+The Custom tab in `cartokit` allows you to load your own basemap by supplying a URL to any style JSON compatible with the [OpenMapTiles](https://openmaptiles.org/schema/) schema.
+
+The OpenMapTiles schema defines a common structure for vector tiles derived from OpenStreetMap. Each tile is organized into thematic layers that describe how features should be rendered. Because the schema is open and widely adopted, many tools can produce compatible vector tiles and style JSON files that work seamlessly in `cartokit`. 
+
+<Aside type="caution" title="CORS Reminder">
+    If you are requesting a custom basemap from a remote server or object storage, ensure you've configured CORS to permit cross-origin requests from the origin `alpha.cartokit.dev`. [Learn more about CORS.](https://web.dev/articles/cross-origin-resource-sharing)
+</Aside>
+<Video src="/basemap-custom-min.mp4" />
+
+
