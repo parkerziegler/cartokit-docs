@@ -35,7 +35,7 @@ The **Point** layer type displays all features of a layer as points with a consi
 
 ### Proportional Symbol
 
-The **Proportional Symbol** layer type allows scaling of point symbols based on the value of a selected attribute for each data point. This is one option type for `MultiPoint`, `MultiPolygon` and `MultiLineString` GeoJSON datasets.
+The **Proportional Symbol** layer type allows scaling of point symbols based on the value of a selected attribute for each data point.
 
 #### Supported Input Geometries
 
@@ -43,13 +43,14 @@ The **Proportional Symbol** layer type allows scaling of point symbols based on 
 - `MultiPoint`
 - `Polygon` (uses centroid)
 - `MultiPolygon` (uses centroid)
+- `LineString` (uses centroid)
+- `MultiLineString` (uses centroid)
 
 ![A Proportional Symbol layer in cartokit consisting of all natural gas-powered electricity plants in the United States and their capacities.](/proportional-symbol.png)
 
 ### Heatmap
 
-The **Heatmap** layer type displays the density of data using a color gradient with intensity styled by a **Constant** concentration of points or weighted **Range** of a selected attribute value. This is one option type for `MultiPoint` GeoJSON datasets.
-
+The **Heatmap** layer type displays the density of data using a color gradient with intensity styled by a **Constant** concentration of points or weighted **Range** of a selected attribute value.
 #### Supported Input Geometries
 
 - `Point`
