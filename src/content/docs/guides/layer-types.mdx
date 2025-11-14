@@ -54,7 +54,12 @@ The **Polygon** layer type displays geographic areas as filled shapes with confi
 
 ### Choropleth
 
-The **Choropleth** layer type colors polygons based on the value of a selected attribute, either **Categories** or a numerical **Range** with a configurable scale. This is one option type for `MultiPolygon` GeoJSON datasets.
+The **Choropleth** layer type colors polygons based on the value of a selected attribute, using either **Categories** or a numerical **Range** with a configurable scale.
+
+#### Supported Input Geometries
+
+- `Polygon`
+- `MultiPolygon`
 
 ![A Choropleth Symbol layer in cartokit visualizing the predicted change in deaths linked to temperature by 2080 across the world.](/choropleth.png)
 
