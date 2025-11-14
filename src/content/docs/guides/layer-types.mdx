@@ -18,6 +18,9 @@ As a tool for interactive cartography, `cartokit` adopts the language of cartogr
 
 `cartokit` currently supports six layer types. The available layer types for a given layer are dependent on the `geometry` of the input data.
 
+### Point
+
+The **Point** layer type displays all features of a layer as points with a consistent, configurable radius. This type is the default type for `Point` and `MultiPoint` GeoJSON datasets.
 
 #### Supported Input Geometries
 
@@ -28,15 +31,18 @@ As a tool for interactive cartography, `cartokit` adopts the language of cartogr
 - `LineString` (uses centroid)
 - `MultiLineString` (uses centroid)
 
-### Point
-
-The **Point** layer type displays all features of a layer as points with a consistent, configurable radius. This type is the default type for `Point` and `MultiPoint` GeoJSON datasets.
-
 ![A Point layer in cartokit consisting of earthquakes from the USGS real-time earthquake feed.](/point.png)
 
 ### Proportional Symbol
 
 The **Proportional Symbol** layer type allows scaling of point symbols based on the value of a selected attribute for each data point. This is one option type for `MultiPoint`, `MultiPolygon` and `MultiLineString` GeoJSON datasets.
+
+#### Supported Input Geometries
+
+- `Point`
+- `MultiPoint`
+- `Polygon` (uses centroid)
+- `MultiPolygon` (uses centroid)
 
 ![A Proportional Symbol layer in cartokit consisting of all natural gas-powered electricity plants in the United States and their capacities.](/proportional-symbol.png)
 
@@ -44,11 +50,21 @@ The **Proportional Symbol** layer type allows scaling of point symbols based on 
 
 The **Heatmap** layer type displays the density of data using a color gradient with intensity styled by a **Constant** concentration of points or weighted **Range** of a selected attribute value. This is one option type for `MultiPoint` GeoJSON datasets.
 
+#### Supported Input Geometries
+
+- `Point`
+- `MultiPoint`
+
 ![A Heatmap Symbol layer in cartokit of concentration of gas-powered electricity plants capacities in the United States.](/heatmap.png)
 
 ### Polygon
 
 The **Polygon** layer type displays geographic areas as filled shapes with configurable fill color and border style. This type is the default type for `Polygon` and `MultiPolygon` GeoJSON datasets.
+
+#### Supported Input Geometries
+
+- `Polygon`
+- `MultiPolygon`
 
 ![A Proportional Symbol layer in cartokit displaying urban areas in the United States.](/polygon.png)
 
@@ -65,13 +81,23 @@ The **Choropleth** layer type colors polygons based on the value of a selected a
 
 ### Dot Density
 
-The **Dot Density** layer type distributes points within polygon boundaries, with the number of points proportional to a selected attribute value. This is one option type for `MultiPolygon` GeoJSON datasets.
+The **Dot Density** layer type distributes points within polygon boundaries, with the number of points proportional to a selected attribute value.
+
+#### Supported Input Geometries
+
+- `Polygon`
+- `MultiPolygon`
 
 ![A Dot Density layer in cartokit visualizing the predicted change in deaths linked to temperature by 2080 across the world.](/dot-density.png)
 
 ### Line
 
 The **Line** layer type displays all features of a layer as lines with configurable stroke styling. This type is the default type for `LineString` and `MultiLineString` GeoJSON datasets.
+
+#### Supported Input Geometries
+
+- `LineString`
+- `MultiLineString`
 
 ![A Line layer in cartokit showing the nationally-designated scenic and wild rivers in the Pacific Northwest.](/line.png)
 
